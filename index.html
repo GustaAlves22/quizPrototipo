@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz de Perguntas Gerais</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <img src="cerebro.png" class="decoracao decoracao-cerebro" alt="Cérebro">
+  <img src="esportes.png" class="decoracao decoracao-esportes" alt="Esportes">
+  <img src="livros.png" class="decoracao decoracao-livros" alt="Livros">
+  <img src="mapa.png" class="decoracao decoracao-mapa" alt="Mapa">
+  <img src="alien.jpg" class="decoracao decoracao-alien" alt="Alien">
+  <img src="domingo.jpg" class="decoracao decoracao-domingo" alt="Domingo">
+
+  <div id="particles-js"></div>
+
+  <div id="tela-inicial" class="tela">
+    <h1>Quiz de Perguntas Gerais</h1>
+    <button onclick="mostrarCadastro()">Iniciar Quiz</button>
+    <button onclick="mostrarRanking()">Ver Ranking</button>
+    <button onclick="mostrarCriarQuiz()">Criar Quiz Personalizado</button>
+    <button onclick="mostrarEntrarQuiz()">Entrar em um Quiz Personalizado</button>
+  </div>
+
+  <div id="alerta" class="oculto"></div>
+
+  <div id="tela-cadastro" class="tela oculto">
+    <h2>Cadastro</h2>
+    <input id="nome" type="text" placeholder="Digite seu nome">
+    <input id="turma" type="text" placeholder="Digite sua turma">
+    <button onclick="iniciarComCadastro()">Iniciar Quiz</button>
+  </div>
+  
+  <div id="tela-temas" class="tela oculto">
+    <h2>Escolha o tema do Quiz</h2>
+    <div id="temas-container">
+      <button onclick="escolherTema('geografia')">Geografia</button>
+      <button onclick="escolherTema('historia')">História</button>
+      <button onclick="escolherTema('ciencia')">Ciências</button>
+      <button onclick="escolherTema('esportes')">Esportes</button>
+      <button onclick="escolherTema('cultura')">Cultura</button>
+      <button onclick="escolherTema('geral')">Geral</button>
+    </div>
+  </div>
+
+  <div id="tela-tipo-pergunta" class="tela oculto">
+    <h2>Escolha o tipo de pergunta</h2>
+    <select id="tipo-pergunta">
+      <option value="multipla">Múltipla Escolha</option>
+      <option value="verdadeiro-falso">Verdadeiro ou Falso</option>
+    </select>
+    <button onclick="iniciarQuiz()">Iniciar Quiz</button>
+  </div>
+
+  <div id="tela-quiz" class="tela oculto">
+    <div id="usuario-info"></div>
+    <div id="progresso"></div>
+    <h2 id="pergunta">Carregando pergunta...</h2>
+    <div id="opcoes"></div>
+    <button id="btn-pular" onclick="pularPergunta()">Pular Pergunta (3)</button>
+  </div>
+
+  <div id="tela-resultado" class="tela oculto">
+    <h2>Resultado</h2>
+    <p id="mensagem-final"></p>
+    <p id="pontuacao-final"></p>
+    <button onclick="reiniciar()">Jogar Novamente</button>
+    <button onclick="voltarInicio()">Voltar ao Início</button>
+  </div>
+
+  <div id="tela-ranking" class="tela oculto">
+    <h2>Ranking</h2>
+    <ul id="lista-ranking"></ul>
+    <button onclick="voltarInicio()">Voltar</button>
+  </div>
+
+  <div id="tela-criar-quiz" class="tela oculto">
+    <h2>Criar Quiz Personalizado</h2>
+    <input id="titulo-quiz" type="text" placeholder="Título do Quiz"><br>
+    <div id="perguntas-criadas"></div>
+    <button onclick="adicionarPergunta()">Adicionar Pergunta</button>
+    <button onclick="salvarQuizPersonalizado()">Salvar e Compartilhar</button>
+    <button onclick="voltarInicio()">Voltar</button>
+  </div>
+
+  <div id="tela-entrar-quiz" class="tela oculto">
+    <h2>Entrar em Quiz Personalizado</h2>
+    <input id="codigo-quiz" type="text" placeholder="Código do Quiz">
+    <button onclick="carregarQuizPersonalizado()">Entrar</button>
+    <button onclick="voltarInicio()">Voltar</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
